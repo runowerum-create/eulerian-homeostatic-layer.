@@ -26,3 +26,4 @@ Experimental PyTorch layer implementing alternative attention and dynamic contex
 ## ⚠️ Важное примечание (Usage Note)
 При использовании батчей размером больше 1 (`batch_size > 1`), не забудьте применить метод `.mean().item()` к условию ворот амнезии в коде во избежание ошибок несовместимости размерностей тензоров.
  ![Телеметрия](имя_файла.png).
+<img width="968" height="374" alt="17830220054603883651124083478028" src="https://github.com/user-attachments/assets/50dfa9f3-e5e8-47b8-a106-56b37ebf5345" />

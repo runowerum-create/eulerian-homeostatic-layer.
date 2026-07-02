@@ -1,2 +1,27 @@
 # eulerian-homeostatic-layer.
-"Hey! Wanted to share a fun concept we've put together—an experimental PyTorch layer called the Eulerian Homeostatic Layer [stem-calculative-problem-solving].The core idea is to move away from static context processing in Transformers and treat it as a dynamic, physics-inspired system instead. Here, the model's memory literally spins into a vortex using Eulerian dynamics, with the rotation speed driven by information pressure (info_pressure) [stem-calculative-problem-solving].We also integrated a thermodynamic homeostasis mechanism: it tracks context 'temperature'. If the system gets overwhelmed with data, a differentiable amnesia_gate triggers to mathematically smooth the weights. Under critical overload, it performs a hard context truncation to save the model from cognitive collapse [stem-calculative-problem-solving]. As a bonus, it calculates a doubt marker (is_doubting) based on distribution entropy [stem-calculative-problem-solving].The code is fully functional (just a quick heads-up: for batch sizes > 1, remember to use .mean().item() on the amnesia gate condition so it doesn't crash) [stem-calculative-problem-solving]. Take a look if you're into alternative attention mechanisms—would love to hear your thoughts just for fun!"
+# 🌡️ Eulerian Homeostatic Layer
+
+Experimental PyTorch layer implementing alternative attention and dynamic context processing inspired by fluid dynamics and thermodynamics.
+
+## 💡 О проекте (About)
+Этот проект — исследование в области нестандартных архитектур нейросетей. Вместо статического или линейного анализа контекста в стандартных Трансформерах, здесь контекст обрабатывается как **динамическая, физически вдохновленная система**. 
+
+Модель симулирует поведение живого организма или физической среды, которая реагирует на сложность и объем поступающей информации, стремясь к внутреннему равновесию (гомеостазу).
+
+## 🧬 Ключевые механизмы (Core Features)
+
+*   **Эйлерова вихревая память (Eulerian Vortex Memory):** Память модели буквально закручивается в виртуальный «вихрь» с использованием динамики Эйлера. Скорость вращения этого вихря напрямую зависит от информационного давления (`info_pressure`).
+*   **Термодинамический гомеостаз (Thermodynamic Homeostasis):** Система непрерывно отслеживает внутреннюю «температуру» контекста. Чем сложнее или хаотичнее данные, тем сильнее нагревается слой.
+*   **Дифференцируемые ворота амнезии (Amnesia Gate):** Защитный механизм от «когнитивного коллапса». Если температура превышает критический порог, плавно активируется сброс памяти, математически сглаживая веса и очищая контекст от шума.
+*   **Маркер сомнения (Doubt Marker):** На основе энтропии распределения токенов модель рассчитывает показатель `is_doubting`, оценивая собственную уверенность в ответах.
+
+## 📊 Результаты тестов (TinyStories Dataset)
+Модель была протестирована на популярном датасете детских рассказов `TinyStories` с размером словаря в 5 000 токенов на аппаратном ускорителе **NVIDIA T4 GPU (CUDA)**.
+
+*   **Эпохи обучения:** 25 дней (итераций).
+*   **Финальный лосс (LM Loss):** Успешно снижен с `6.203` на старте до **`2.928`** к концу обучения.
+*   **Динамика гомеостаза:** Модель успешно адаптировалась к словарю. Верхний слой самостоятельно нащупал «температуру комфорта» и стабилизировался в оптимальном рабочем диапазоне `0.26 - 0.32`, удерживая систему от перегрева без экстренных амнезий.
+*   **Качество генерации:** Сеть успешно выучила базовую грамматику, структуру предложений сказок и ключевых персонажей (Timmy, Lily, Tweety), генерируя текст без зацикливаний и неизвестных токенов (`<unk>`).
+
+## ⚠️ Важное примечание (Usage Note)
+При использовании батчей размером больше 1 (`batch_size > 1`), не забудьте применить метод `.mean().item()` к условию ворот амнезии в коде во избежание ошибок несовместимости размерностей тензоров.
